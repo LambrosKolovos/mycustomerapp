@@ -11,7 +11,7 @@ import android.util.Log;
 public class MyDBHandler extends SQLiteOpenHelper {
     //Σταθερές για τη ΒΔ (όνομα ΒΔ, έκδοση, πίνακες κλπ)
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "contactsDB.db";
+    private static final String DATABASE_NAME = "customersDB.db";
     public static final String TABLE_CONTACTS = "contacts";
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_NAME = "name";
