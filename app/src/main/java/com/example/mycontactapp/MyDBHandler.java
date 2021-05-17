@@ -19,12 +19,20 @@ public class MyDBHandler extends SQLiteOpenHelper {
     public static final String COLUMN_EMAIL = "email";
     public static final String COLUMN_NUMBER = "number";
     public static final String COLUMN_BIRTHDAY = "birthday";
+    SQLiteDatabase db;
 
     //Constructor
+    public MyDBHandler(Context context){
+        super(context,DATABASE_NAME,null,DATABASE_VERSION);
+
+    }
+    /*
     public MyDBHandler(Context context, String name,
                        SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
     }
+
+     */
 
     //Δημιουργία του σχήματος της ΒΔ (πίνακας products)
     @Override
@@ -35,7 +43,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
                 COLUMN_NAME + " TEXT," +
                 COLUMN_LASTNAME + " TEXT," +
                 COLUMN_EMAIL + " TEXT," +
-                COLUMN_NUMBER + " INTEGER," +
+                COLUMN_NUMBER + " TEXT," +
                 COLUMN_BIRTHDAY + " TEXT" +")";
         db.execSQL(CREATE_CONTACTS_TABLE);
     }
@@ -50,6 +58,8 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
     //Μέθοδος για προσθήκη ενός προϊόντος στη ΒΔ
     public void addContact(CustomerInfo customer) {
+        db=this.getWritableDatabase();
+        //
         ContentValues values = new ContentValues();
         values.put(COLUMN_NAME, customer.getName());
         values.put(COLUMN_LASTNAME,customer.getLastName());
@@ -74,7 +84,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
             customer.setName(cursor.getString(1));
             customer.setLastName(cursor.getString(2));
             customer.setEmail(cursor.getString(3));
-            customer.setNumber(Integer.parseInt(cursor.getString(4)));
+            customer.setNumber(cursor.getString(4));
             customer.setBirthday(cursor.getString(5));
             cursor.close();
         } else {

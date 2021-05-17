@@ -5,13 +5,13 @@ public class CustomerInfo {
     private String _name;
     private String _lastname;
     private String _email;
-    private int _number;
+    private String _number;
     private String _birthday;
 
     public CustomerInfo(){
 
     }
-    public CustomerInfo(int id,String name,String lastname,String email,int number,String birthday){
+    public CustomerInfo(int id,String name,String lastname,String email,String number,String birthday){
         this.setID(id);
         this._name=name;
         this._lastname=lastname;
@@ -20,7 +20,7 @@ public class CustomerInfo {
         this._birthday=birthday;
     }
 
-    public CustomerInfo(String name,String lastname,String email,int number,String birthday){
+    public CustomerInfo(String name,String lastname,String email,String number,String birthday){
         this._name=name;
         this._lastname=lastname;
         this._email=email;
@@ -60,11 +60,11 @@ public class CustomerInfo {
         return this._email;
     }
 
-    public void setNumber(int number){
+    public void setNumber(String number){
         this._number=number;
     }
 
-    public int getNumber(){
+    public String getNumber(){
         return this._number;
     }
 
