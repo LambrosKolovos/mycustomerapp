@@ -1,5 +1,8 @@
 package com.example.mycontactapp;
 
+/**
+ * this class contains the info for each customer/contact
+ */
 public class CustomerInfo {
     private int _id;
     private String _name;

@@ -1,17 +1,18 @@
 package com.example.mycontactapp;
+/**
+ * this class is used to insert info/data for a new contact/customer
+ */
 
 import androidx.appcompat.app.AppCompatActivity;
-import android.app.Activity;
-import android.content.Intent;
+
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class InfoActivity extends AppCompatActivity {
+public class InsertInfoActivity extends AppCompatActivity {
 
 
     MyDBHandler db=new MyDBHandler(this);
@@ -21,7 +22,7 @@ public class InfoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_info);
+        setContentView(R.layout.activity_insert_info);
 
         //initialize variables
 
@@ -46,7 +47,7 @@ public class InfoActivity extends AppCompatActivity {
 
                 // on below line we are making a text validation.
                 if (TextUtils.isEmpty(name) && TextUtils.isEmpty(email) && TextUtils.isEmpty(phone)) {
-                    Toast.makeText(InfoActivity.this, "Please enter the data in all fields. ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(InsertInfoActivity.this, "Please enter the data in all fields. ", Toast.LENGTH_SHORT).show();
                 } else {
 
                     // calling a method to add contact.
