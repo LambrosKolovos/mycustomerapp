@@ -10,6 +10,7 @@ import android.sax.TextElementListener;
 import android.util.Log;
 
 import java.sql.RowId;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MyDBHandler extends SQLiteOpenHelper {
@@ -118,5 +119,35 @@ public class MyDBHandler extends SQLiteOpenHelper {
         return result;
     }
 
+
+    public ArrayList<CustomerInfo> readCustomers() {
+        // on below line we are creating a
+        // database for reading our database.
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // on below line we are creating a cursor with query to read data from database.
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_CONTACTS, null);
+
+        // on below line we are creating a new array list.
+        ArrayList<CustomerInfo> customerList = new ArrayList<>();
+
+        // moving our cursor to first position.
+        if (cursor.moveToFirst()) {
+            do {
+                // on below line we are adding the data from cursor to our array list.
+                customerList.add(new CustomerInfo(cursor.getInt(1),
+                        cursor.getString(2),
+                        cursor.getString(3),
+                        cursor.getString(4),
+                        cursor.getString(5),
+                        cursor.getString(6)));
+            } while (cursor.moveToNext());
+            // moving our cursor to next.
+        }
+        // at last closing our cursor
+        // and returning our array list.
+        cursor.close();
+        return customerList;
+    }
 
 }

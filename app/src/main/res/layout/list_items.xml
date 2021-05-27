@@ -13,9 +13,13 @@
         android:id="@+id/idIconContact"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_margin="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:padding="3dp"
-        android:src="@mipmap/ic_launcher" />
+        android:src="@mipmap/ic_launcher"
+        app:srcCompat="@drawable/icon" />
 
     <!--text view for displaying user name-->
     <TextView
@@ -24,13 +28,28 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="28dp"
+        android:layout_marginLeft="18dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
         android:layout_toRightOf="@id/idIconContact"
-        android:text="Name"
-        android:textSize="24dp"
-        android:textColor="@color/black" />
 
+        android:text="Name"
+        android:textColor="@color/black"
+        android:textSize="24dp" />
+
+    <TextView
+        android:id="@+id/idContactLastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="-2dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:layout_below="@id/idContactName"
+        android:layout_toRightOf="@id/idIconContact"
+        android:text="Last Name"
+        android:textColor="@color/black"
+        android:textSize="18dp" />
 
 </RelativeLayout>

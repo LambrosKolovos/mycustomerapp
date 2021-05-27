@@ -10,15 +10,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.internal.TextDrawableHelper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
    private Context context;
-   private List<CustomerInfo> customerList;
+   private ArrayList<CustomerInfo> customerList;
 
-    public RecyclerAdapter(Context context,List<CustomerInfo> customerList) {
+
+    public RecyclerAdapter(Context context,ArrayList<CustomerInfo> customerList) {
         this.context = context;
         this.customerList=customerList;
     }
@@ -26,10 +27,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     @NonNull
     @Override
     public RecyclerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater= LayoutInflater.from(context);
-        View view =inflater.inflate(R.layout.activity_main,null);
-        ViewHolder holder=new ViewHolder(view);
-        return holder;
+
+        return new RecyclerAdapter.ViewHolder(LayoutInflater.from(context).inflate(R.layout.list_items,parent,false));
+
     }
 
     @Override
@@ -38,10 +38,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         holder.itemName.setText(customer.getName());
         holder.itemLastName.setText(customer.getLastName());
         //
+
        holder.itemView.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
                Intent i=new Intent(context,ShowInfoActivity.class);
+               i.putExtra("name",customer.getName());
+               i.putExtra("Last name",customer.getLastName());
                context.startActivity(i);
            }
        });
@@ -60,8 +63,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         public ViewHolder(View itemView){
             super(itemView);
 
-            itemName=itemView.findViewById(R.id.idEdtName);
-            itemLastName=itemView.findViewById(R.id.idEdtLastName);
+            itemName=itemView.findViewById(R.id.idContactName);
+            itemLastName=itemView.findViewById(R.id.idContactLastName);
         }
 
     }

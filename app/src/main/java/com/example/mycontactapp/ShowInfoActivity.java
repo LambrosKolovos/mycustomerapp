@@ -31,7 +31,8 @@ public class ShowInfoActivity extends AppCompatActivity {
         emailid = findViewById(R.id.idEmail);
         birthdayid= findViewById(R.id.idBirthday);
         buttonid = findViewById(R.id.del_button);
-        //
+        //delete button
+
         buttonid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
