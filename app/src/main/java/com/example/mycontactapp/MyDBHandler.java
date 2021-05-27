@@ -6,7 +6,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.content.Context;
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.sax.TextElementListener;
 import android.util.Log;
+
+import java.sql.RowId;
+import java.util.List;
 
 public class MyDBHandler extends SQLiteOpenHelper {
     //Σταθερές για τη ΒΔ (όνομα ΒΔ, έκδοση, πίνακες κλπ)
@@ -20,6 +24,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
     public static final String COLUMN_NUMBER = "number";
     public static final String COLUMN_BIRTHDAY = "birthday";
     SQLiteDatabase db;
+
 
     //Constructor
     public MyDBHandler(Context context){
@@ -112,4 +117,6 @@ public class MyDBHandler extends SQLiteOpenHelper {
         db.close();
         return result;
     }
+
+
 }
