@@ -101,10 +101,10 @@ public class MyDBHandler extends SQLiteOpenHelper {
     }
 
     //Μέθοδος για διαγραφή προϊόντος βάσει ονομασίας του
-    public boolean deleteCustomer(String name) {
+    public boolean deleteCustomer(int _id) {
         boolean result = false;
         String query = "SELECT * FROM " + TABLE_CONTACTS + " WHERE " +
-                COLUMN_NAME + " = '" + name + "'";
+                COLUMN_ID + " = '" + _id + "'";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
         CustomerInfo customer = new CustomerInfo();
@@ -135,12 +135,12 @@ public class MyDBHandler extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 // on below line we are adding the data from cursor to our array list.
-                customerList.add(new CustomerInfo(cursor.getInt(1),
+                customerList.add(new CustomerInfo(cursor.getInt(0),
+                        cursor.getString(1),
                         cursor.getString(2),
                         cursor.getString(3),
                         cursor.getString(4),
-                        cursor.getString(5),
-                        cursor.getString(6)));
+                        cursor.getString(5)));
             } while (cursor.moveToNext());
             // moving our cursor to next.
         }

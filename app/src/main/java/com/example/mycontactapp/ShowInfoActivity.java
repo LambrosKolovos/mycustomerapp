@@ -17,6 +17,7 @@ public class ShowInfoActivity extends AppCompatActivity {
 
     private TextView nameid,lastnameid, phoneid, emailid,birthdayid;
     private Button buttonid;
+    private int _id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +32,17 @@ public class ShowInfoActivity extends AppCompatActivity {
         emailid = findViewById(R.id.idEmail);
         birthdayid= findViewById(R.id.idBirthday);
         buttonid = findViewById(R.id.del_button);
-        //delete button
 
+        Bundle extras = getIntent().getExtras();
+        _id = extras.getInt("_id");
+        nameid.setText(extras.getString("first_name"));
+        lastnameid.setText(extras.getString("last_name"));
+        phoneid.setText(extras.getString("phone"));
+        emailid.setText(extras.getString("email"));
+        birthdayid.setText(extras.getString("birthday"));
+
+
+        //delete button
         buttonid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,16 +60,18 @@ public class ShowInfoActivity extends AppCompatActivity {
                 } else {
 
                     // calling a method to delete contact.
-
                     CustomerInfo c=new CustomerInfo();
+                    c.setID(_id);
                     c.setName(name);
                     c.setLastName(lastname);
                     c.setEmail(email);
                     c.setNumber(phone);
                     c.setBirthday(birthday);
 
-
-                    db.deleteCustomer(c.getName());
+                    boolean deleted = db.deleteCustomer(c.getID());
+                    if (deleted){
+                        finish();
+                    }
                 }
             }
         });

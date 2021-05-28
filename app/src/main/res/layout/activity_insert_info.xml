@@ -69,10 +69,8 @@
         android:layout_below="@id/idEdtEmail"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-
         android:hint="Enter Birthday"
         android:inputType="text"
         tools:layout_editor_absoluteX="82dp"

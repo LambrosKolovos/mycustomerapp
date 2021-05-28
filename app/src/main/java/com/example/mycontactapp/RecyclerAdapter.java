@@ -43,8 +43,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
            @Override
            public void onClick(View v) {
                Intent i=new Intent(context,ShowInfoActivity.class);
-               i.putExtra("name",customer.getName());
-               i.putExtra("Last name",customer.getLastName());
+               i.putExtra("_id", customer.getID());
+               i.putExtra("first_name", customer.getName());
+               i.putExtra("last_name", customer.getLastName());
+               i.putExtra("phone", customer.getNumber());
+               i.putExtra("email", customer.getEmail());
+               i.putExtra("birthday", customer.getBirthday());
                context.startActivity(i);
            }
        });

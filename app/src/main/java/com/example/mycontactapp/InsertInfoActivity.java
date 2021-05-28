@@ -59,8 +59,8 @@ public class InsertInfoActivity extends AppCompatActivity {
                     c.setNumber(phone);
                     c.setBirthday(birthday);
 
-
                     db.addContact(c);
+                    finish();
                 }
             }
         });
