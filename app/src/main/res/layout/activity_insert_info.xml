@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#B4E5EC"
     android:orientation="vertical"
     tools:context=".InsertInfoActivity">
 
@@ -14,6 +15,7 @@
         android:layout_margin="8dp"
         android:hint="Enter Name"
         android:inputType="text"
+        android:textStyle="bold"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="191dp" />
 
@@ -26,6 +28,7 @@
         android:layout_margin="8dp"
         android:hint="Enter Last Name"
         android:inputType="text"
+        android:textStyle="bold"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="265dp" />
 
@@ -43,6 +46,7 @@
         android:drawableStart="@android:drawable/stat_sys_phone_call"
         android:hint="Enter Number"
         android:inputType="text"
+        android:textStyle="bold"
         tools:layout_editor_absoluteX="59dp"
         tools:layout_editor_absoluteY="416dp" />
     <EditText
@@ -57,6 +61,7 @@
         android:drawableStart="@android:drawable/ic_dialog_email"
         android:hint="Enter e-mail"
         android:inputType="text"
+        android:textStyle="bold"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="343dp" />
 
@@ -73,6 +78,7 @@
         android:layout_marginBottom="8dp"
         android:hint="Enter Birthday"
         android:inputType="text"
+        android:textStyle="bold"
         tools:layout_editor_absoluteX="82dp"
         tools:layout_editor_absoluteY="483dp" />
 
@@ -82,6 +88,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="257dp"
+        android:backgroundTint="#024C6E"
+        android:drawableRight="@android:drawable/ic_menu_save"
         android:text="SAVE"
         tools:layout_editor_absoluteX="284dp"
         tools:layout_editor_absoluteY="643dp" />

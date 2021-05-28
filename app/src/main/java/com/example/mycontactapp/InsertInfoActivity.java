@@ -1,6 +1,7 @@
 package com.example.mycontactapp;
 /**
- * this class is used to insert info/data for a new contact/customer
+ * This class is used to insert info for a new contact/customer.It takes the info from
+ * the user and stores it to the database.
  */
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,7 +34,8 @@ public class InsertInfoActivity extends AppCompatActivity {
         birthdayEdt= findViewById(R.id.idEdtBirthday);
         buttonEdt = findViewById(R.id.button);
 
-        //
+        //add action listener to the button
+
         buttonEdt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,8 +52,9 @@ public class InsertInfoActivity extends AppCompatActivity {
                     Toast.makeText(InsertInfoActivity.this, "Please enter the data in all fields. ", Toast.LENGTH_SHORT).show();
                 } else {
 
-                    // calling a method to add contact.
-                    //addContact(name,lastname, email, phone,birthday);
+                    //creating an CustomerInfo object
+                    //and then calling the  addContact() method from MyDBHandler class
+
                     CustomerInfo c=new CustomerInfo();
                     c.setName(name);
                     c.setLastName(lastname);
@@ -62,6 +65,8 @@ public class InsertInfoActivity extends AppCompatActivity {
                     db.addContact(c);
                     finish();
                 }
+                //a pop up text message to reassure that the contact is saved
+                Toast.makeText(InsertInfoActivity.this, "Saved!", Toast.LENGTH_SHORT).show();
             }
         });
     }

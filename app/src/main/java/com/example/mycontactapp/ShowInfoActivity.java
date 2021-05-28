@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ *
+ */
 public class ShowInfoActivity extends AppCompatActivity {
 
 
@@ -25,7 +28,6 @@ public class ShowInfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_show_info);
 
         //initialize variables
-
         nameid = findViewById(R.id.idName);
         lastnameid=findViewById(R.id.idLastName);
         phoneid = findViewById(R.id.idPhone);
@@ -33,6 +35,7 @@ public class ShowInfoActivity extends AppCompatActivity {
         birthdayid= findViewById(R.id.idBirthday);
         buttonid = findViewById(R.id.del_button);
 
+        //setting the data for display
         Bundle extras = getIntent().getExtras();
         _id = extras.getInt("_id");
         nameid.setText(extras.getString("first_name"));
@@ -42,7 +45,7 @@ public class ShowInfoActivity extends AppCompatActivity {
         birthdayid.setText(extras.getString("birthday"));
 
 
-        //delete button
+        //delete button and action listener
         buttonid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,7 +62,7 @@ public class ShowInfoActivity extends AppCompatActivity {
                     Toast.makeText(ShowInfoActivity.this, "Please enter the data in all fields. ", Toast.LENGTH_SHORT).show();
                 } else {
 
-                    // calling a method to delete contact.
+                    // calling  method to delete contact.
                     CustomerInfo c=new CustomerInfo();
                     c.setID(_id);
                     c.setName(name);
@@ -72,6 +75,8 @@ public class ShowInfoActivity extends AppCompatActivity {
                     if (deleted){
                         finish();
                     }
+                    //pop up message to confirm that contact was deleted
+                    Toast.makeText(ShowInfoActivity.this, "Contact Deleted!", Toast.LENGTH_SHORT).show();
                 }
             }
         });

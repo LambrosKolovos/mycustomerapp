@@ -1,7 +1,10 @@
 package com.example.mycontactapp;
 
 /**
- * this class contains the info for each customer/contact
+ * This class contains the info about each customer/contact such as
+ * the name,last name,phone number ,e-mail and birthday.It also contains
+ *setters and getters.
+ *
  */
 public class CustomerInfo {
     private int _id;
@@ -11,6 +14,7 @@ public class CustomerInfo {
     private String _number;
     private String _birthday;
 
+    //Constructors
     public CustomerInfo(){
 
     }

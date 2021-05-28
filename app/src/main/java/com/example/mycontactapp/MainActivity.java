@@ -14,6 +14,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
+/**
+ * This class handles the main activity of the app which is the Recycler View,
+ * so it initializes the Recycler
+ */
+
 public class MainActivity extends AppCompatActivity {
 
     MyDBHandler handler;
@@ -29,10 +34,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //initialize recycler view
         shouldExecuteOnResume = false;
         recyclerView = findViewById(R.id.idRecyclerView);
         noCustomers = findViewById(R.id.idNoContacts);
         initRecycler();
+
+        //initialize the addNewContact button and add action listener
 
         FloatingActionButton addNewContact = findViewById(R.id.idAddButton);
         addNewContact.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +66,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /*
+    This method starts the Recycle View ,it takes the data from the databse
+    in an arraylist and
+     */
     private void initRecycler() {
         customerList = new ArrayList<>();
         handler = new MyDBHandler(MainActivity.this);

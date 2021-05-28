@@ -13,6 +13,11 @@ import java.sql.RowId;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class is the database handler ,it creates the database and has methods
+ * that can add or delete  data to the database.
+ *
+ */
 public class MyDBHandler extends SQLiteOpenHelper {
     //Σταθερές για τη ΒΔ (όνομα ΒΔ, έκδοση, πίνακες κλπ)
     private static final int DATABASE_VERSION = 1;
@@ -32,15 +37,8 @@ public class MyDBHandler extends SQLiteOpenHelper {
         super(context,DATABASE_NAME,null,DATABASE_VERSION);
 
     }
-    /*
-    public MyDBHandler(Context context, String name,
-                       SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, DATABASE_NAME, factory, DATABASE_VERSION);
-    }
 
-     */
-
-    //Δημιουργία του σχήματος της ΒΔ (πίνακας products)
+    //Creation of Contacts Table of customersDB.db
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE " +
@@ -54,7 +52,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
         db.execSQL(CREATE_CONTACTS_TABLE);
     }
 
-    //Αναβάθμιση ΒΔ: εδώ τη διαγραφώ και τη ξαναδημιουργώ ίδια
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion,
                           int newVersion) {
@@ -62,7 +60,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    //Μέθοδος για προσθήκη ενός προϊόντος στη ΒΔ
+    //data insertion in the database
     public void addContact(CustomerInfo customer) {
         db=this.getWritableDatabase();
         //
@@ -77,7 +75,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    //Μέθοδος για εύρεση προϊόντος βάσει ονομασίας του
+
     public CustomerInfo findCustomer (String name) {
         String query = "SELECT * FROM " + TABLE_CONTACTS + " WHERE " +
                 COLUMN_NAME + " = '" + name + "'";
@@ -100,7 +98,8 @@ public class MyDBHandler extends SQLiteOpenHelper {
         return customer;
     }
 
-    //Μέθοδος για διαγραφή προϊόντος βάσει ονομασίας του
+    //delete a contact from database based on his id
+
     public boolean deleteCustomer(int _id) {
         boolean result = false;
         String query = "SELECT * FROM " + TABLE_CONTACTS + " WHERE " +
@@ -120,6 +119,9 @@ public class MyDBHandler extends SQLiteOpenHelper {
     }
 
 
+    /*
+    This method reads the data from the database and converts them into an arraylist
+     */
     public ArrayList<CustomerInfo> readCustomers() {
         // on below line we are creating a
         // database for reading our database.
