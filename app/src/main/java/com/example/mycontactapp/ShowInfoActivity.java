@@ -11,7 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- *
+ *This class is responsible for displaying the customer info and
+ * has a button for deleting the contact.
  */
 public class ShowInfoActivity extends AppCompatActivity {
 
