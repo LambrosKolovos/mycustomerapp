@@ -22,7 +22,7 @@ public class ShowInfoActivity extends AppCompatActivity {
     private TextView nameid,lastnameid, phoneid, emailid,birthdayid;
     private Button buttonid;
     private int _id;
-
+    private String tempLast;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +30,6 @@ public class ShowInfoActivity extends AppCompatActivity {
 
         //initialize variables
         nameid = findViewById(R.id.idName);
-        lastnameid=findViewById(R.id.idLastName);
         phoneid = findViewById(R.id.idPhone);
         emailid = findViewById(R.id.idEmail);
         birthdayid= findViewById(R.id.idBirthday);
@@ -39,8 +38,8 @@ public class ShowInfoActivity extends AppCompatActivity {
         //setting the data for display
         Bundle extras = getIntent().getExtras();
         _id = extras.getInt("_id");
-        nameid.setText(extras.getString("first_name"));
-        lastnameid.setText(extras.getString("last_name"));
+        tempLast = extras.getString("last_name");
+        nameid.setText(extras.getString("first_name") + " " + extras.getString("last_name"));
         phoneid.setText(extras.getString("phone"));
         emailid.setText(extras.getString("email"));
         birthdayid.setText(extras.getString("birthday"));
@@ -53,7 +52,7 @@ public class ShowInfoActivity extends AppCompatActivity {
 
                 // on below line we are getting text from our edit text.
                 String name = nameid.getText().toString();
-                String lastname = lastnameid.getText().toString();
+                String lastname = tempLast;
                 String phone = phoneid.getText().toString();
                 String email = emailid.getText().toString();
                 String birthday = birthdayid.getText().toString();

@@ -13,7 +13,8 @@
         android:id="@+id/idRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#B4E5EC"/>
+        android:background="#B4E5EC"
+        android:padding="15dp"/>
 
     <TextView
         android:id="@+id/idNoContacts"

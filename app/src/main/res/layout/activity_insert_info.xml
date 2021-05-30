@@ -8,90 +8,125 @@
     android:orientation="vertical"
     tools:context=".InsertInfoActivity">
 
-    <EditText
-        android:id="@+id/idEdtName"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:hint="Enter Name"
-        android:inputType="text"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="191dp" />
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:padding="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="First name"
+                android:textColor="#024C6E"
+                android:textSize="18sp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
+                android:textStyle="bold"/>
+            <EditText
+                android:background="@drawable/input_border"
+                android:padding="10dp"
+                android:layout_marginBottom="30dp"
+                android:id="@+id/idEdtName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="John"
+                android:inputType="text" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last name"
+                android:textColor="#024C6E"
+                android:textSize="18sp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
+                android:textStyle="bold"/>
+            <EditText
+                android:background="@drawable/input_border"
+                android:padding="10dp"
+                android:layout_marginBottom="30dp"
+                android:id="@+id/idEdtLastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/idEdtName"
+                android:hint="Doe"
+                android:inputType="text"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone"
+                android:textColor="#024C6E"
+                android:textSize="18sp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
+                android:textStyle="bold"/>
 
-    <EditText
-        android:id="@+id/idEdtLastName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/idEdtName"
-        android:layout_marginTop="50dp"
-        android:layout_margin="8dp"
-        android:hint="Enter Last Name"
-        android:inputType="text"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="265dp" />
+            <EditText
+                android:background="@drawable/input_border"
+                android:padding="10dp"
+                android:layout_marginBottom="30dp"
+                android:id="@+id/idEdtNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/idEdtLastName"
+                android:hint="6974365413"
+                android:inputType="numberSigned"
+                />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="E-mail"
+                android:textColor="#024C6E"
+                android:textSize="18sp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
+                android:textStyle="bold"/>
 
-    <EditText
-        android:id="@+id/idEdtNumber"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/idEdtLastName"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:backgroundTint="@color/white"
-        android:drawableStart="@android:drawable/stat_sys_phone_call"
-        android:hint="Enter Number"
-        android:inputType="text"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="59dp"
-        tools:layout_editor_absoluteY="416dp" />
-    <EditText
-        android:id="@+id/idEdtEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/idEdtNumber"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:drawableStart="@android:drawable/ic_dialog_email"
-        android:hint="Enter e-mail"
-        android:inputType="text"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="343dp" />
+            <EditText
+                android:background="@drawable/input_border"
+                android:padding="10dp"
+                android:id="@+id/idEdtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/idEdtNumber"
+                android:layout_marginBottom="30dp"
+                android:hint="me@mail.gr"
+                android:inputType="textEmailAddress" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Birthday"
+                android:textColor="#024C6E"
+                android:textSize="18sp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
+                android:textStyle="bold"/>
 
+            <EditText
+                android:background="@drawable/input_border"
+                android:padding="10dp"
+                android:id="@+id/idEdtBirthday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/idEdtEmail"
+                android:layout_marginBottom="30dp"
+                android:hint="12/08/1999"
+                android:inputType="text"
+                tools:layout_editor_absoluteX="82dp" />
 
-    <EditText
-        android:id="@+id/idEdtBirthday"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/idEdtEmail"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:hint="Enter Birthday"
-        android:inputType="text"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="82dp"
-        tools:layout_editor_absoluteY="483dp" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="257dp"
-        android:backgroundTint="#024C6E"
-        android:drawableRight="@android:drawable/ic_menu_save"
-        android:text="SAVE"
-        tools:layout_editor_absoluteX="284dp"
-        tools:layout_editor_absoluteY="643dp" />
-
+            <Button
+                android:layout_gravity="center"
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#024C6E"
+                android:drawableRight="@android:drawable/ic_menu_save"
+                android:text="SAVE" />
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

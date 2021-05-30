@@ -45,6 +45,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         //setting data to  text view
         holder.itemName.setText(customer.getName());
         holder.itemLastName.setText(customer.getLastName());
+        holder.itemPhone.setText(customer.getNumber());
 
         //add action listener to item of recycler view
        holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -76,12 +77,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
         private TextView itemName;
         private TextView itemLastName;
+        private TextView itemPhone;
 
         public ViewHolder(View itemView){
             super(itemView);
 
             itemName=itemView.findViewById(R.id.idContactName);
             itemLastName=itemView.findViewById(R.id.idContactLastName);
+            itemPhone=itemView.findViewById(R.id.idPhone);
         }
 
     }
